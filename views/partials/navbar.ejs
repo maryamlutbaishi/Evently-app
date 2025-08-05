@@ -1,12 +1,12 @@
 <nav>
-    <% if (user){ %>
-    <a href="/auth/logout">Logout</a>
-    <%= user.username %>
-
-
-    <%} else{ %>
-    <a href="/auth/login">Login</a>
-    <a href="/auth/sign-up">Sign Up</a>
-    <%} %>
-    
+    <div class="nav-left">
+    <div class="app-name">🌸Evently</div>
+  </div>
+  <% if (user){ %>
+    <a class="nav-btn" href="/auth/logout">Logout</a>
+    <span class="username"><%= user.username %></span>
+  <% } else { %>
+    <a class="nav-btn" href="/auth/login">Login</a>
+    <a class="nav-btn" href="/auth/sign-up">Sign Up</a>
+  <% } %>
 </nav>

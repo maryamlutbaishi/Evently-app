@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <%- include('../partials/navbar') %>
+    <h1>all events:</h1>
+
+    <% allEvents.forEach((oneEvent)=>{ %>
+        <a href="/event/show/<%= oneEvent._id %>">View Post</a>
+        ><%= user.username %>
+        <p>Event name: <%= oneEvent.event %></p>
+        <p>Event Date : <%= oneEvent.date%></p>
+        <p>Event location: <%= oneEvent.location %></p>
+        <p>Event description: <%= oneEvent.description %></p>
+        <form action="/event/events/<%= oneEvent._id %>?_method=DELETE" method="post">
+            <button type="submit">DELETE EVENT</button>
+        </form>
+        <form action="/event/edit/<%= oneEvent._id %>" method="get" >
+        <button type="submit">EDIT EVENT</button>
+        </form>
+        <form action="/comment/create/<%= oneEvent._id %>" method="get" >
+        <button type="submit">Add Comment</button>
+        </form>
+    <% }) %>
+</body>
+</html>

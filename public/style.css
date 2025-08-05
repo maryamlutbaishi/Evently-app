@@ -1,0 +1,128 @@
+body {
+  font-family: 'Abel', sans-serif;
+  background: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+  margin: 0;
+  padding-top: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+form {
+  background: white;
+  padding: 2rem;
+  margin-top: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  width: 320px;
+  box-sizing: border-box;
+}
+
+form header h2 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 2rem;
+  text-align: center;
+  color: #d12d62;
+}
+
+form header p {
+  text-align: center;
+  margin-top: 0.3rem;
+  color: #666;
+  font-size: 1rem;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 0.7rem;
+  margin: 0.7rem 0 1.2rem 0;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border-color: #d12d62;
+}
+
+button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #d12d62;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #a3204c;
+}
+
+.error {
+  color: red;
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+nav {
+  background-color: #d12d62;
+  padding: 0.8rem 2rem;
+  display: flex;
+  align-items: center;
+  
+  gap: 1rem;
+  justify-content: flex-end;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+nav .nav-btn {
+  background-color: white;
+  color: #d12d62;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav .nav-btn:hover {
+  background-color: #a3204c;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+nav .username {
+  color: white;
+  font-weight: 600;
+  margin-left: 1rem;
+}
+.nav-left{
+  align-items: left;
+}
+
+.app-name{
+  position: fixed;
+  top:0;
+  left: 0;
+  margin: 16px;
+  color:#fed6e3;
+  font-size: 30px;
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Event Detail</title>
+</head>
+<body>
+  <h1><%= event.event %></h1>
+  <p><strong>Date:</strong> <%= event.date ? event.date.toDateString() : 'N/A' %></p>
+  <p><strong>Location:</strong> <%= event.location %></p>
+  <p><strong>Description:</strong> <%= event.description %></p>
+  <% if(event.image) { %>
+    <img src="<%= event.image %>" alt="Event Image" width="300" />
+  <% } %>
+
+  <h2>Comments:</h2>
+  <% event.comments.forEach(comment => { %>
+    <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+      <p><%= comment.comment %></p>
+      <% if(comment.image) { %>
+        <img src="<%= comment.image %>" alt="Comment Image" width="100" />
+      <% } %>
+    </div>
+  <% }) %>
+
+
+  <form action="/comment/create/<%= event._id %>" method="get">
+    <button type="submit">creat comment</button>
+  </form>
+  <form action="/event/events" method="get">
+    <button type="submit">Back to Events List</button>
+  </form>
+</body>
+</html>

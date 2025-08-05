@@ -7,5 +7,24 @@
 </head>
 <body>
     <h1>creat the event</h1>
+
+     <form action="/event/create/" method="POST">
+    <label for="event">Event Name:</label>
+    <input type="text" id="event" name="event" required /><br/><br/>
+
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" />
+
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="location" /><br/><br/>
+
+    <label for="description">Description:</label><br />
+    <textarea id="description" name="description" rows="10" cols="50" required></textarea><br/><br/>
+
+    <label for="image">Image URL:</label>
+    <input type="url" id="image" name="image" />
+
+    <button type="submit">Create Event</button>
+     </form>
 </body>
 </html>

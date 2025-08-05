@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Update the event</title>
+  <style>
+    form {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    label {
+      margin-right: 5px;
+    }
+    input, textarea {
+      margin-right: 15px;
+      padding: 5px;
+    }
+    textarea {
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+  <h1>Update the event</h1>
+
+  <form action="/event/edit/<%= event._id %>?_method=PUT" method="POST">
+    <label for="event">Event:</label>
+    <input type="text" id="event" name="event" value="<%= event.event %>" required />
+
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" value="<%= event.date ? event.date.toISOString().split('T')[0] : '' %>" />
+
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="location" value="<%= event.location %>" />
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" rows="2" cols="30" required><%= event.description %></textarea>
+
+    <label for="image">Image URL:</label>
+    <input type="url" id="image" name="image" value="<%= event.image %>" />
+
+    <button type="submit">Update Event</button>
+  </form>
+</body>
+</html>

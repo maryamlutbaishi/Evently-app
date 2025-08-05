@@ -7,9 +7,11 @@ const methodOverride = require("method-override")
 const conntectToDB = require('./config/db')
 const authRoutes = require("./routes/auth.routes")
 const eventRoutes = require("./routes/event.routes")
+const commentRoutes=require("./routes/comment.routes")
 const session = require("express-session")
 const passUserToView = require('./middleware/passUserToView')
 const isSignedIn = require("./middleware/isSignedIn")
+const MongoStore = require("connect-mongo");
 
 
 
@@ -29,7 +31,18 @@ app.use(
     resave: false,
     saveUninitialized: true,
   })
-); // uses the secret session code in the .env to encrypt the token
+); 
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URI,
+    }),
+  })
+);
+// uses the secret session code in the .env to encrypt the token
 app.use(passUserToView) //used to set the res.locals.user for each ejs page
 app.set("view engine", "ejs") //is more specific on which view engine we are using
 
@@ -51,6 +64,7 @@ app.use(isSignedIn)
 //all your protected routes go below this middleware
 // Routes go here
 app.use("/event",eventRoutes)
+app.use("/comment",commentRoutes)
 
 
 

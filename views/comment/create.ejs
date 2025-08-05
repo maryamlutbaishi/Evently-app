@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leave a Comment</title>
+</head>
+<body>
+
+  <h2>Comment</h2>
+  <%= event._id %>
+  <form action="" method="POST">
+    <label for="description">Description:</label>
+    <textarea id="description" name="comment" rows="2" cols="30" required></textarea><br/><br/>
+
+    <label for="image">Image URL:</label>
+    <input type="url" id="image" name="image" /><br/><br/>
+
+    <button type="submit">Comment</button>
+  </form>
+
+</body>
+</html>

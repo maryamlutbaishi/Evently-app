@@ -5,8 +5,8 @@ const eventSchema= new mongoose.Schema({
         type:String,
         required:[true,"you have to write the event"],
     },
-    Date:{
-        type:Date,
+    date:{
+        type:Date
     },
     location:{
         type:String
@@ -17,7 +17,11 @@ const eventSchema= new mongoose.Schema({
     },
     image:{
         type:String
-    }
+    },
+    comments:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"Comment"
+    }]
 })
 const Event = mongoose.model("Event",eventSchema)
 
